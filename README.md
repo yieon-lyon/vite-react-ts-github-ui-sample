@@ -25,4 +25,3 @@
 - [ ] login user - user private repo
 - [ ] bundle size check
 - [ ] lighthouse check
-- [ ] 
