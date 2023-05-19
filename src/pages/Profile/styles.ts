@@ -1,10 +1,6 @@
 import styled, { css } from 'styled-components';
 import { OverView, Repositories, Projects, Packages } from '../../styles/Icons';
 
-interface ContainerProps {
-  panelActive: number;
-}
-
 const iconCSS = css`
   width: 16px;
   height: 16px;
@@ -13,15 +9,14 @@ const iconCSS = css`
   fill: var(--black);
 `;
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div`
   --horizontalPadding: 16px;
   --verticalPadding: 24px;
 
   padding: var(--verticalPadding) var(--horizontalPadding);
 
   @media (min-width: 768px) {
-    ${props => props.panelActive === 1 && `height: calc(100% - 94px);`}
-    ${props => props.panelActive === 1 && `min-height: calc(100% - 94px);`}
+    height: calc(100% - 94px);
   }
 `;
 

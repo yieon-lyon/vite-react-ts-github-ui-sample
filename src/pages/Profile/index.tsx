@@ -56,8 +56,8 @@ const Profile: React.FC = () => {
         const userResponse = await api.get(`users/${username}`)
         const user = userResponse.data
 
-        const reposResponse = await api.get(`users/${username}/repos?per_page=100`)
-        const repos = reposResponse.data
+        const reposResponse = await api.get(`search/repositories?q=user:${username}&per_page=100`)
+        const repos = reposResponse.data.items
         setRepos(repos)
 
         const orgsResponse = await api.get(`users/${username}/orgs?per_page=100`)
@@ -124,7 +124,7 @@ const Profile: React.FC = () => {
   )
 
   return (
-    <Container panelActive={panelActive} id="main-profile">
+    <Container id="main-profile">
       <Tab className="desktop">
         <div className="wrapper">
           <span className="offset" />
