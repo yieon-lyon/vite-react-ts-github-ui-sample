@@ -71,7 +71,7 @@ const Profile: React.FC = () => {
           user,
           repos: slicedRepos,
         })
-      } catch (err) {
+      } catch (err: any) {
         const error = err?.response?.data?.message ? err.response.data.message : err.message
         setData({ error })
         await notify(error, 'error')
@@ -83,7 +83,7 @@ const Profile: React.FC = () => {
     loadUserInfo()
   }, [username])
 
-  useTitle(`GitHub UI Clone${loading || data?.error ? '' : ` | ${data.user.name}`}`)
+  useTitle(`GitHub UI Clone${loading || data?.error ? '' : ` | ${data?.user?.name}`}`)
 
   if (loading) {
     return <LoaderSpinner color="#6a737d" />
@@ -105,17 +105,17 @@ const Profile: React.FC = () => {
         <div className={`content ${panelActive === 2 ? ' active' : ''}`} onClick={() => setPanelActive(2)} role="button">
           <RepoIcon />
           <span className="label">Repositories</span>
-          <span className="number">{kFormatter(data.user?.public_repos)}</span>
+          <span className="number">{kFormatter(data!.user!.public_repos)}</span>
         </div>
       </Tooltip>
       <Tooltip title="Go to user's projects" placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
-        <div className="content" onClick={() => window.open(`https://github.com/${data.user.login}?tab=projects`, '_blank')} role="button">
+        <div className="content" onClick={() => window.open(`https://github.com/${data!.user!.login}?tab=projects`, '_blank')} role="button">
           <ProjectsIcon />
           <span className="label">Projects</span>
         </div>
       </Tooltip>
       <Tooltip title="Go to user's packages" placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
-        <div className="content" onClick={() => window.open(`https://github.com/${data.user.login}?tab=packages`, '_blank')} role="button">
+        <div className="content" onClick={() => window.open(`https://github.com/${data!.user!.login}?tab=packages`, '_blank')} role="button">
           <PackagesIcon />
           <span className="label">Packages</span>
         </div>
@@ -137,18 +137,18 @@ const Profile: React.FC = () => {
       <Main>
         <LeftSide>
           <ProfileData
-            type={data.user?.type}
-            username={data.user.login}
-            bio={data.user?.bio}
-            name={data.user.name}
-            avatarUrl={data.user.avatar_url}
-            followers={data.user.followers}
-            following={data.user.following}
-            company={data.user.company}
-            location={data.user.location}
-            email={data.user.email}
-            blog={data.user.blog}
-            twitter={data.user?.twitter_username}
+            type={data!.user?.type}
+            username={data!.user!.login}
+            bio={data!.user?.bio}
+            name={data!.user!.name}
+            avatarUrl={data!.user!.avatar_url}
+            followers={data!.user!.followers}
+            following={data!.user!.following}
+            company={data!.user!.company}
+            location={data!.user!.location}
+            email={data!.user!.email}
+            blog={data!.user!.blog}
+            twitter={data!.user?.twitter_username}
             orgs={organizations}
           />
         </LeftSide>
@@ -160,10 +160,10 @@ const Profile: React.FC = () => {
           {panelActive === 1 ? (
             <>
               <Repos>
-                <h2>{data?.repos.length > 0 ? 'Random Repositories' : 'User does not have any public repositories yet'}</h2>
+                <h2>{data!.repos!.length > 0 ? 'Random Repositories' : 'User does not have any public repositories yet'}</h2>
 
                 <div>
-                  {data.repos.map(item => (
+                  {data!.repos!.map(item => (
                     <RepoCard
                       key={item.name}
                       username={item.owner.login}
@@ -188,7 +188,7 @@ const Profile: React.FC = () => {
             <>
               <Repos>
                 <h2>Repositories</h2>
-                {data?.repos.length > 0 && (
+                {data!.repos!.length > 0 && (
                   <Tooltip title={`see all repositories from ${username}`} placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
                     <a href={`https://github.com/${username}?tab=repositories`} className="repo-link" target="_blank" rel="noopener noreferrer">
                       see all repositories
@@ -196,7 +196,7 @@ const Profile: React.FC = () => {
                   </Tooltip>
                 )}
                 <div>
-                  {repositories.map(item => (
+                  {repositories.map((item: any) => (
                     <RepoCard
                       key={item.name}
                       username={item.owner.login}

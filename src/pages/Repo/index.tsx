@@ -81,7 +81,7 @@ const Repo: React.FC = () => {
   const classes = useStyles()
 
   const [data, setData] = useState<Data>()
-  const [repoLanguages, setLanguages] = useState([])
+  const [repoLanguages, setLanguages]: any[] = useState([])
   const [repoReleases, setReleases] = useState<Array<Releases>>([])
   const [repoPulls, setPulls] = useState(0)
   const [repoIssues, setIssues] = useState(0)
@@ -92,7 +92,7 @@ const Repo: React.FC = () => {
 
   useFavicon(`${window.location.origin}/favicon.ico`)
 
-  const sumValues = obj => Object.values(obj).reduce((a: number, b: number) => a + b)
+  const sumValues = (obj: number) => Object.values(obj).reduce((a: number, b: number) => a + b)
   const getPercentageValue = (value: number, total: number) => {
     const percentage = (value * 100) / total
     return percentage.toFixed(2)
@@ -164,7 +164,7 @@ const Repo: React.FC = () => {
         const shuffledContributors = contributors.sort(() => 0.5 - Math.random())
         const slicedContributors = shuffledContributors.slice(0, 7)
         setContributors(slicedContributors)
-      } catch (err) {
+      } catch (err: any) {
         const error = err?.response?.data?.message ? err.response.data.message : err.message
         switch (error) {
           case 'Not Found':
@@ -186,12 +186,12 @@ const Repo: React.FC = () => {
 
   useTitle(`GitHub UI Clone${loading || data?.error ? '' : ` | ${username}/${reponame}`}`)
 
-  function getLanguageColor(language) {
+  function getLanguageColor(language: any) {
     const languageName = language ? language.replace(' ', '-').toLowerCase() : 'other'
     return languageColors[languageName]
   }
 
-  function getReleaseDate(date) {
+  function getReleaseDate(date: any) {
     const dateStr = new Date(Date.parse(date))
     return dateStr.toDateString()
   }
@@ -413,13 +413,13 @@ const Repo: React.FC = () => {
               <h4>Languages</h4>
 
               <HorizontalBar>
-                {repoLanguages.map(lng => (
+                {repoLanguages.map((lng: any) => (
                   <LanguageBar color={getLanguageColor(lng.language)} size={lng.percentage} key={lng.language} />
                 ))}
               </HorizontalBar>
 
               <ul className="languages">
-                {repoLanguages.map((lng, index) => (
+                {repoLanguages.map((lng: any, index: number) => (
                   <li key={index}>
                     <LanguageDot color={getLanguageColor(lng.language)} />
                     <span>{`${lng.language}: ${lng.percentage}%`}</span>
@@ -459,11 +459,11 @@ const Repo: React.FC = () => {
               <h4>Contributors</h4>
 
               <Contributors>
-                {repoContributors.map(contributor => (
-                  <ContributorsCard key={contributor?.login}>
-                    <Tooltip title={`Go to ${contributor.login}`} placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
-                      <a href={`https://github.com/${contributor.login}`} target="_blank" rel="noopener noreferrer">
-                        <img src={contributor?.avatar_url} alt={contributor.login} />
+                {repoContributors.map(({avatar_url, login}) => (
+                  <ContributorsCard key={login}>
+                    <Tooltip title={`Go to ${login}`} placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
+                      <a href={`https://github.com/${login}`} target="_blank" rel="noopener noreferrer">
+                        <img src={avatar_url} alt={login} />
                       </a>
                     </Tooltip>
                   </ContributorsCard>
