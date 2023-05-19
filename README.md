@@ -20,8 +20,8 @@
 - [x] github profile
 - [x] github repo
 - [x] yarn3
-- [ ] login
-- [ ] guest user - my public repo
-- [ ] login user - user private repo
+- [x] guest user - my public repo
+- [x] token user - user private repo
 - [ ] bundle size check
 - [ ] lighthouse check
+- [ ] login
