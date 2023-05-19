@@ -22,6 +22,8 @@
 - [x] yarn3
 - [x] guest user - my public repo
 - [x] token user - user private repo
-- [x] bundle size check
-- [ ] lighthouse check
-- [ ] login
+- [x] bundle visualizer
+- [x] lighthouse
+
+### Lighthouse
+![img.png](docs/assets/lighthouse.png)
