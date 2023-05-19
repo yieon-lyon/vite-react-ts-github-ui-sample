@@ -19,7 +19,7 @@
 ## Todo: Specs & Func to add 
 - [x] github profile
 - [x] github repo
-- [ ] yarn3
+- [x] yarn3
 - [ ] login
 - [ ] guest user - my public repo
 - [ ] login user - user private repo
