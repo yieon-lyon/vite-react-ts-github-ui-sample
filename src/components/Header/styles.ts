@@ -1,5 +1,8 @@
 import styled from 'styled-components';
-import { FaGithub, FaMoon, FaSun, FaSearch } from 'react-icons/fa';
+import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
+import { FaMoon } from '@react-icons/all-files/fa/FaMoon';
+import { FaSun } from '@react-icons/all-files/fa/FaSun';
+import { FaSearch } from '@react-icons/all-files/fa/FaSearch';
 
 export const Container = styled.div`
   display: flex;

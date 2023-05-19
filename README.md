@@ -22,6 +22,6 @@
 - [x] yarn3
 - [x] guest user - my public repo
 - [x] token user - user private repo
-- [ ] bundle size check
+- [x] bundle size check
 - [ ] lighthouse check
 - [ ] login

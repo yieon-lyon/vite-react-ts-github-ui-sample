@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { RiStarLine } from 'react-icons/ri';
+import { RiStarLine } from '@react-icons/all-files/ri/RiStarLine';
 import { Repositories, Fork } from '../../styles/Icons';
 
 export const Container = styled.div`

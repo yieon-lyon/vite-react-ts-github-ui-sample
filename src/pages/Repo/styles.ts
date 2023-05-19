@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { RiStarLine } from 'react-icons/ri';
-import { FaGithub } from 'react-icons/fa';
+import { RiStarLine } from '@react-icons/all-files/ri/RiStarLine';
+import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
 import { Repositories, Fork, Tag, Check, Commits, Actions, Code, Issues, Insight, PullRequest, Security, Settings, Projects, OverView, Watch } from '../../styles/Icons';
 
 interface LanguageBarProps {

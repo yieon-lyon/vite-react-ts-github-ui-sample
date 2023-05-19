@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
 
 export const Container = styled.div`
   display: flex;

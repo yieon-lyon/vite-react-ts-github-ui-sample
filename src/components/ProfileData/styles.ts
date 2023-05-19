@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { RiGroupLine } from 'react-icons/ri';
-import { FaTwitter } from 'react-icons/fa';
+import { RiGroupLine } from '@react-icons/all-files/ri/RiGroupLine';
+import { FaTwitter } from '@react-icons/all-files/fa/FaTwitter';
 import { Company, Email, Link, Location } from '../../styles/Icons';
 
 export const Container = styled.div``;

@@ -1,6 +1,6 @@
-import React from 'react'
 import { toast } from 'react-toastify'
-import { FaExclamationTriangle, FaCheck } from 'react-icons/fa'
+import { FaExclamationTriangle } from '@react-icons/all-files/fa/FaExclamationTriangle'
+import { FaCheck } from '@react-icons/all-files/fa/FaCheck'
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async function notify(msg: string, type: string) {
