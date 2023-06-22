@@ -31,8 +31,6 @@ jobs:
 
       - name: Push image to Docker Hub (staging)
         env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
           IMAGE_TAG: ${{ github.event.inputs.version }}
         run: |
           docker tag $SERVICE_NAME $DOCKER_HUB_USERNAME/$SERVICE_NAME:$IMAGE_TAG
