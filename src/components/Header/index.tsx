@@ -46,7 +46,7 @@ const Header: React.FC<Props> = ({ themeName, setThemeName }) => {
           </button>
         </Tooltip>
       </SearchForm>
-      <Chip label={`ENV: ` + import.meta.env.MODE} size="small"/>
+      <Chip label={`ENV: ` + import.meta.env.VITE_NODE_ENV} size="small"/>
       <Tooltip title={`Activate ${themeName === 'light' ? 'Dark' : 'Light'} Mode`} placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
         <div className="theme">{themeName === 'light' ? <MoonIcon onClick={toggleTheme} /> : <SunIcon onClick={toggleTheme} />}</div>
       </Tooltip>

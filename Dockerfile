@@ -1,17 +1,16 @@
-FROM node:18.16.1
+FROM node:18.16.1 as build
 
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Install app dependencies
-COPY package.json /usr/src/app/
-
-# Bundle app source
-COPY . /usr/src/app
+COPY . /app
 
 RUN yarn
 RUN yarn build
 
-EXPOSE 4173
-CMD ["yarn", "preview"]
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install nginx -y
+COPY --from=build /app/dist /var/www/html/
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
