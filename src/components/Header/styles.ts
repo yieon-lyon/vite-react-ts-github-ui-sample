@@ -18,6 +18,9 @@ export const Container = styled.div`
     width: 20px;
     height: 20px;
   }
+  .MuiChip-root {
+    margin-right: 10px;
+  }
 `;
 
 export const GithubLogo = styled(FaGithub)`

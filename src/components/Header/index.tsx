@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Tooltip } from '@material-ui/core'
+import { Tooltip, Chip } from '@material-ui/core'
 
 import { useStyles } from '../../styles/MaterialUI'
 import { Container, GithubLogo, SearchForm, MoonIcon, SunIcon, SearchIcon } from './styles'
@@ -46,6 +46,7 @@ const Header: React.FC<Props> = ({ themeName, setThemeName }) => {
           </button>
         </Tooltip>
       </SearchForm>
+      <Chip label={`ENV: ` + import.meta.env.MODE} size="small"/>
       <Tooltip title={`Activate ${themeName === 'light' ? 'Dark' : 'Light'} Mode`} placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
         <div className="theme">{themeName === 'light' ? <MoonIcon onClick={toggleTheme} /> : <SunIcon onClick={toggleTheme} />}</div>
       </Tooltip>
